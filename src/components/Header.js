@@ -4,43 +4,54 @@ import {
   Button,
   Toolbar,
   Typography,
-  useTheme,
-  useMediaQuery,
   IconButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import MemoryIcon from "@mui/icons-material/Memory";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const pages = ["Home", "Products", "Contact"];
 
-  const theme = useTheme();
-
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const linkStyle = {
+    textDecoration: "none",
+    color: "#f5f5f5",
+  };
 
   return (
     <AppBar color="secondary" position="static">
       <Toolbar sx={{ justifyContent: "space-around" }}>
-        <Box>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <MemoryIcon sx={{ mr: 1 }} />
           <Typography
             color="primary"
-            variant="h6"
-            sx={{ textTransform: "uppercase" }}
+            variant="h5"
+            component="h1"
+            textTransform="uppercase"
+            sx={{ fontFamily: "Geforce" }}
           >
             Component Nexus
           </Typography>
         </Box>
         <Box sx={{ display: "flex" }}>
-          {isMatch ? (
+          <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+            {pages.map((page) => (
+              <Link
+                key={page}
+                to={page === "Home" ? "/" : page}
+                style={linkStyle}
+              >
+                <Button color="light" sx={{ mx: 2 }}>
+                  {page}
+                </Button>
+              </Link>
+            ))}
+          </Box>
+          <Box sx={{ display: { xs: "block", sm: "block", md: "none" } }}>
             <IconButton color="light">
               <MenuIcon />
             </IconButton>
-          ) : (
-            pages.map((page) => (
-              <Button key={page} color="light" sx={{ width: "5.6875rem" }}>
-                {page}
-              </Button>
-            ))
-          )}
+          </Box>
         </Box>
       </Toolbar>
     </AppBar>
