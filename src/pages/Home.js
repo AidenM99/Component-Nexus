@@ -1,16 +1,16 @@
-import { Box, Grid } from "@mui/material";
-import Background from "../assets/background.jpg";
+import { Box } from "@mui/material";
+import Background from "../assets/images/background.jpg";
 
 const Home = () => {
   return (
-    <Grid
-      container
+    <Box
       sx={{
         background: `url(${Background}) no-repeat fixed center`,
         backgroundPosition: "58% 0",
-        height: "100vh",
+        height: "calc(100vh - 4rem)",
+        backgroundSize: "cover",
       }}
-    ></Grid>
+    ></Box>
   );
 };
 
