@@ -1,9 +1,10 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
-import Header from "./components/Header";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import "./assets/fonts/GeForce/GeForce-Bold.ttf";
 
 const theme = createTheme({
   palette: {
@@ -24,13 +25,16 @@ const theme = createTheme({
       },
     },
   },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "GeForce", "Arial", sans-serif',
+  },
 });
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
