@@ -18,15 +18,17 @@ const Header = ({ linkStyle }) => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <MemoryIcon sx={{ mr: 1 }} />
-          <Typography
-            color="primary"
-            variant="h5"
-            component="h1"
-            textTransform="uppercase"
-            sx={{ fontFamily: "Geforce" }}
-          >
-            Component Nexus
-          </Typography>
+          <Link to="/" style={linkStyle}>
+            <Typography
+              color="primary"
+              variant="h5"
+              component="h1"
+              textTransform="uppercase"
+              sx={{ fontFamily: "Geforce" }}
+            >
+              Component Nexus
+            </Typography>
+          </Link>
         </Box>
         <Box sx={{ display: "flex" }}>
           <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
