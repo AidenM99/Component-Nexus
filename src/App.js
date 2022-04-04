@@ -31,12 +31,17 @@ const theme = createTheme({
 });
 
 function App() {
+  const linkStyle = {
+    textDecoration: "none",
+    color: "#f5f5f5",
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Header />
+        <Header linkStyle={linkStyle} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home linkStyle={linkStyle} />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
