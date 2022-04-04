@@ -10,17 +10,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MemoryIcon from "@mui/icons-material/Memory";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ linkStyle }) => {
   const pages = ["Home", "Products", "Contact"];
 
-  const linkStyle = {
-    textDecoration: "none",
-    color: "#f5f5f5",
-  };
-
   return (
-    <AppBar color="secondary" position="static">
-      <Toolbar sx={{ justifyContent: "space-around" }}>
+    <AppBar color="secondary" position="static" sx={{ px: "7.5%" }}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <MemoryIcon sx={{ mr: 1 }} />
           <Typography
