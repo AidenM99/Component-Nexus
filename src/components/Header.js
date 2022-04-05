@@ -14,7 +14,12 @@ const Header = ({ linkStyle }) => {
   const pages = ["Home", "Products", "Contact"];
 
   return (
-    <AppBar color="secondary" position="static" sx={{ px: "7.5%" }}>
+    <AppBar
+      color="secondary"
+      position="static"
+      elevation={0}
+      sx={{ px: "7.5%" }}
+    >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <MemoryIcon sx={{ mr: 1 }} />
