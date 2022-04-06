@@ -7,23 +7,36 @@ import {
   Grid,
   Button,
 } from "@mui/material";
-import processors from "../utils/products/Processors";
 
-const ProductCard = () => {
+const ProductCard = ({ products }) => {
   return (
     <>
-      {processors.map((product) => (
-        <Grid key={product.id} item md={6} lg={4} xl={3}>
-          <Card>
-            <CardActionArea sx={{ padding: "1rem" }}>
+      {products.map((product) => (
+        <Grid key={product.id} item xs={8} md={6} lg={4} xl={3}>
+          <Card
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              height: "100%",
+            }}
+          >
+            <CardActionArea sx={{ padding: "1rem", height: "200px" }}>
               <CardMedia
                 component="img"
                 image={product.image}
-                sx={{ width: "100%", margin: "auto" }}
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  margin: "auto",
+                  objectFit: "contain",
+                }}
               />
             </CardActionArea>
             <CardContent>
-              <Typography variant="h6">{product.description}</Typography>
+              <Typography variant="h6" fontSize="1rem">
+                {product.name}
+              </Typography>
               <Typography fontStyle="italic">{product.price}</Typography>
               <Button
                 variant="contained"
