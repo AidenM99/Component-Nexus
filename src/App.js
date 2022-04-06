@@ -6,6 +6,8 @@ import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import "./assets/fonts/GeForce/GeForce-Bold.ttf";
 import CssBaseline from "@mui/material/CssBaseline";
+import products from "./utils/products/products";
+import { useState } from "react";
 
 const theme = createTheme({
   palette: {
@@ -32,6 +34,8 @@ const theme = createTheme({
 });
 
 function App() {
+  const [productDisplay, setProductDisplay] = useState(products);
+
   const linkStyle = {
     textDecoration: "none",
     color: "#f5f5f5",
@@ -44,7 +48,10 @@ function App() {
         <Header linkStyle={linkStyle} />
         <Routes>
           <Route path="/" element={<Home linkStyle={linkStyle} />} />
-          <Route path="/products" element={<Products />} />
+          <Route
+            path="/products"
+            element={<Products products={productDisplay} />}
+          />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
