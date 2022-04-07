@@ -12,8 +12,9 @@ const ProductCard = ({ products }) => {
   return (
     <>
       {products.map((product) => (
-        <Grid key={product.id} item xs={8} md={6} lg={4} xl={3}>
+        <Grid key={product.id} item xs={8} md={6} lg={4}>
           <Card
+            raised={false}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -30,6 +31,7 @@ const ProductCard = ({ products }) => {
                   height: "100%",
                   margin: "auto",
                   objectFit: "contain",
+                  mixBlendMode: "multiply",
                 }}
               />
             </CardActionArea>
