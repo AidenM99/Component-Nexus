@@ -8,9 +8,10 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MemoryIcon from "@mui/icons-material/Memory";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 
-const Header = ({ linkStyle }) => {
+const Header = ({ linkStyle, toggleDrawer }) => {
   const pages = ["Home", "Products", "Contact"];
 
   return (
@@ -18,7 +19,7 @@ const Header = ({ linkStyle }) => {
       color="secondary"
       position="static"
       elevation={0}
-      sx={{ px: "7.5%" }}
+      sx={{ px: "7.5%", display: "flex" }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -35,7 +36,7 @@ const Header = ({ linkStyle }) => {
             </Typography>
           </Link>
         </Box>
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
             {pages.map((page) => (
               <Link
@@ -52,6 +53,11 @@ const Header = ({ linkStyle }) => {
           <Box sx={{ display: { xs: "block", sm: "block", md: "none" } }}>
             <IconButton color="light">
               <MenuIcon />
+            </IconButton>
+          </Box>
+          <Box>
+            <IconButton color="light" onClick={() => toggleDrawer(true)}>
+              <ShoppingCartIcon />
             </IconButton>
           </Box>
         </Box>
