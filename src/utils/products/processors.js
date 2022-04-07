@@ -7,7 +7,7 @@ import Ryzen5950X from "../../assets/images/ryzen-5950X.jpg";
 const processors = [
   {
     id: uniqid(),
-    category: "processors",
+    category: "Processors",
     name: "AMD Ryzen 3600X",
     description: "AMD Ryzen 5 3600",
     price: "£201.50",
@@ -15,7 +15,7 @@ const processors = [
   },
   {
     id: uniqid(),
-    category: "processors",
+    category: "Processors",
     name: "AMD Ryzen 5600X",
     description: "AMD Ryzen 5 5600X",
     price: "£210.90",
@@ -23,7 +23,7 @@ const processors = [
   },
   {
     id: uniqid(),
-    category: "processors",
+    category: "Processors",
     name: "AMD Ryzen 5900X",
     description: "AMD Ryzen 9 5900X",
     price: "£420.00",
@@ -31,7 +31,7 @@ const processors = [
   },
   {
     id: uniqid(),
-    category: "processors",
+    category: "Processors",
     name: "AMD Ryzen 5950X",
     description: "AMD Ryzen 9 5950X",
     price: "£565.59",

@@ -7,7 +7,7 @@ import RTX3060 from "../../assets/images/rtx-3060.jpg";
 const gpus = [
   {
     id: uniqid(),
-    category: "gpus",
+    category: "Graphics Cards",
     name: "EVGA GeForce RTX 3090",
     description: "EVGA GeForce RTX 3090",
     price: "£1,857.00",
@@ -15,7 +15,7 @@ const gpus = [
   },
   {
     id: uniqid(),
-    category: "gpus",
+    category: "Graphics Cards",
     name: "EVGA GeForce RTX 3080 Ti",
     description: "EVGA GeForce RTX 3080 Ti",
     price: "£1,356.00",
@@ -23,7 +23,7 @@ const gpus = [
   },
   {
     id: uniqid(),
-    category: "gpus",
+    category: "Graphics Cards",
     name: "EVGA GeForce RTX 3070 Ti",
     description: "EVGA GeForce RTX 3070 Ti",
     price: "£753.50",
@@ -31,7 +31,7 @@ const gpus = [
   },
   {
     id: uniqid(),
-    category: "gpus",
+    category: "Graphics Cards",
     name: "EVGA GeForce RTX 3060",
     description: "EVGA GeForce RTX 3060",
     price: "£475.34",

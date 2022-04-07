@@ -7,7 +7,7 @@ import B550MGigabyte from "../../assets/images/b550m-gigabyte.jpg";
 const motherboards = [
   {
     id: uniqid(),
-    category: "motherboards",
+    category: "Motherboards",
     name: "MSI MAG B550 TOMAHAWK",
     description: "MSI MAG B550 TOMAHAWK ATX AM4 Motherboard",
     price: "£139.95",
@@ -15,7 +15,7 @@ const motherboards = [
   },
   {
     id: uniqid(),
-    category: "motherboards",
+    category: "Motherboards",
     name: "Asus ROG STRIX B550-F",
     description: "Asus ROG STRIX B550-F GAMING (WI-FI) ATX AM4 Motherboard",
     price: "£179.84",
@@ -23,7 +23,7 @@ const motherboards = [
   },
   {
     id: uniqid(),
-    category: "motherboards",
+    category: "Motherboards",
     name: "MSI MPG B550 GAMING",
     description: "MSI MPG B550 GAMING PLUS ATX AM4 Motherboard",
     price: "£109.91",
@@ -31,7 +31,7 @@ const motherboards = [
   },
   {
     id: uniqid(),
-    category: "motherboards",
+    category: "Motherboards",
     name: "Gigabyte B550M DS3H",
     description: "Gigabyte B550M DS3H Micro ATX AM4 Motherboard",
     price: "£70.98",
