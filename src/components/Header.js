@@ -5,19 +5,20 @@ import {
   Toolbar,
   Typography,
   IconButton,
+  Badge,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MemoryIcon from "@mui/icons-material/Memory";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 
-const Header = ({ linkStyle, toggleDrawer }) => {
+const Header = ({ linkStyle, toggleDrawer, cart }) => {
   const pages = ["Home", "Products", "Contact"];
 
   return (
     <AppBar
       color="secondary"
-      position="static"
+      position="sticky"
       elevation={0}
       sx={{ px: "7.5%", display: "flex" }}
     >
@@ -57,7 +58,9 @@ const Header = ({ linkStyle, toggleDrawer }) => {
           </Box>
           <Box>
             <IconButton color="light" onClick={() => toggleDrawer(true)}>
-              <ShoppingCartIcon />
+              <Badge badgeContent={cart.length} color="primary">
+                <ShoppingCartIcon />
+              </Badge>
             </IconButton>
           </Box>
         </Box>
