@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from "@mui/material";
 import ProductCard from "../components/ProductCard";
-import Sidebar from "../components/Sidebar";
+import Filters from "../components/Filters";
 
 const Products = ({ products, filterProducts }) => {
   return (
-    <Box sx={{ background: "#fefefe" }}>
+    <Box>
       <Typography
         color="secondary"
         variant="h3"
@@ -24,14 +24,15 @@ const Products = ({ products, filterProducts }) => {
         sx={{
           py: "6rem",
           px: "2rem",
-          maxWidth: "1420px",
+          maxWidth: "1200px",
           margin: "auto",
+          flexDirection: "column",
         }}
       >
-        <Grid item xs={2}>
-          <Sidebar filterProducts={filterProducts} />
+        <Grid item xs={12}>
+          <Filters filterProducts={filterProducts} />
         </Grid>
-        <Grid item xs={10} sx={{ flexGrow: "1" }}>
+        <Grid item xs={12} sx={{ flexGrow: "1" }}>
           <Grid container spacing={3}>
             <ProductCard products={products} />
           </Grid>
