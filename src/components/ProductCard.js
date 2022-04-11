@@ -23,7 +23,7 @@ const ProductCard = ({ productDisplay }) => {
               borderRadius: 0,
             }}
           >
-            <Link to={`/products/${product.name}`} style={{ color: "inherit" }}>
+            <Link to={`/products/${product.id}`} style={{ color: "inherit" }}>
               <CardActionArea
                 sx={{
                   padding: "5rem",
