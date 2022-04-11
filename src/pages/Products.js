@@ -1,8 +1,17 @@
 import { Box, Grid, Typography } from "@mui/material";
 import ProductCard from "../components/ProductCard";
 import Filters from "../components/Filters";
+import { useEffect } from "react";
 
-const Products = ({ products, filterProducts }) => {
+const Products = ({
+  productDisplay,
+  setProductDisplay,
+  allProducts,
+  filterProducts,
+}) => {
+  useEffect(() => {
+    setProductDisplay(allProducts);
+  }, [allProducts, setProductDisplay]);
   return (
     <Box>
       <Typography
@@ -34,7 +43,7 @@ const Products = ({ products, filterProducts }) => {
         </Grid>
         <Grid item xs={12} sx={{ flexGrow: "1" }}>
           <Grid container spacing={3}>
-            <ProductCard products={products} />
+            <ProductCard productDisplay={productDisplay} />
           </Grid>
         </Grid>
       </Grid>

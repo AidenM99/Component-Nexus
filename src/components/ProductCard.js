@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ products }) => {
+const ProductCard = ({ productDisplay }) => {
   return (
     <>
-      {products.map((product) => (
+      {productDisplay.map((product) => (
         <Grid key={product.id} item xs={8} md={6} lg={4}>
           <Card
             sx={{

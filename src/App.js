@@ -7,7 +7,7 @@ import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import "./assets/fonts/GeForce/GeForce-Bold.ttf";
 import CssBaseline from "@mui/material/CssBaseline";
-import products from "./utils/products/products";
+import allProducts from "./utils/products/products";
 import { useEffect, useRef, useState } from "react";
 import Item from "./pages/Item";
 
@@ -36,7 +36,7 @@ const theme = createTheme({
 });
 
 function App() {
-  const [productDisplay, setProductDisplay] = useState(products);
+  const [productDisplay, setProductDisplay] = useState(allProducts);
   const [activeFilters, setActiveFilters] = useState([]);
   const [drawerState, setDrawerState] = useState(false);
   const [cart, setCart] = useState([]);
@@ -49,12 +49,12 @@ function App() {
 
   useEffect(() => {
     if (notInitialRender.current) {
-      const newProductDisplay = products.filter((product) =>
+      const newProductDisplay = allProducts.filter((product) =>
         activeFilters.includes(product.category)
       );
 
       activeFilters.length === 0
-        ? setProductDisplay(products)
+        ? setProductDisplay(allProducts)
         : setProductDisplay(newProductDisplay);
     } else {
       notInitialRender.current = true;
@@ -72,6 +72,7 @@ function App() {
   };
 
   const addToCart = (product) => {
+    console.log("hello");
     setCart((prevState) => [...prevState, product]);
   };
 
@@ -86,12 +87,18 @@ function App() {
           cart={cart}
         />
         <Routes>
-          <Route path="/" element={<Home linkStyle={linkStyle} />} />
+          <Route
+            path="/"
+            element={<Home linkStyle={linkStyle} />}
+            onEnter={() => addToCart()}
+          />
           <Route
             path="/products"
             element={
               <Products
-                products={productDisplay}
+                productDisplay={productDisplay}
+                setProductDisplay={setProductDisplay}
+                allProducts={allProducts}
                 filterProducts={filterProducts}
               />
             }
