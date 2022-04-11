@@ -26,7 +26,7 @@ const ProductCard = ({ productDisplay }) => {
             <Link to={`/products/${product.name}`} style={{ color: "inherit" }}>
               <CardActionArea
                 sx={{
-                  padding: "1rem",
+                  padding: "5rem",
                   height: "350px",
                   background: "rgb(242, 242, 242)",
                 }}
@@ -36,7 +36,7 @@ const ProductCard = ({ productDisplay }) => {
                   image={product.image}
                   alt="product-image"
                   sx={{
-                    width: "60%",
+                    width: "100%",
                     maxWidth: "15rem",
                     height: "100%",
                     margin: "auto",
