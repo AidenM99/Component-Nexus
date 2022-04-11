@@ -8,7 +8,7 @@ const processors = [
   {
     id: uniqid(),
     category: "Processors",
-    name: "AMD Ryzen 5600X",
+    name: "AMD Ryzen 5 5600X",
     description: "AMD Ryzen 5 5600X 3.7 GHz 6-Core Processor",
     price: "£211.55",
     image: Ryzen5600X,
@@ -16,7 +16,7 @@ const processors = [
   {
     id: uniqid(),
     category: "Processors",
-    name: "AMD Ryzen 5950X",
+    name: "AMD Ryzen 9 5950X",
     description: "AMD Ryzen 9 5950X 3.4 GHz 16-Core Processor",
     price: "£504.95",
     image: Ryzen5950X,
