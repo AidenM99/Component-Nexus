@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Header from "./components/Header";
+import Nav from "./components/Nav";
 import Cart from "./components/Cart";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -10,6 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import allProducts from "./utils/products/products";
 import { useEffect, useRef, useState } from "react";
 import Item from "./pages/Item";
+import products from "./utils/products/products";
 
 const theme = createTheme({
   palette: {
@@ -26,7 +27,7 @@ const theme = createTheme({
   mixins: {
     toolbar: {
       "@media (min-width: 0px)": {
-        minHeight: "64px",
+        minHeight: "80px",
       },
     },
   },
@@ -72,15 +73,18 @@ function App() {
   };
 
   const addToCart = (product) => {
-    console.log("hello");
     setCart((prevState) => [...prevState, product]);
+  };
+
+  const findProduct = (id) => {
+    return allProducts.filter((product) => product.id === id);
   };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <Header linkStyle={linkStyle} toggleDrawer={toggleDrawer} cart={cart} />
+        <Nav linkStyle={linkStyle} toggleDrawer={toggleDrawer} cart={cart} />
         <Cart
           drawerState={drawerState}
           toggleDrawer={toggleDrawer}
@@ -104,7 +108,10 @@ function App() {
             }
           />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/products/:name" element={<Item />} />
+          <Route
+            path="/products/:id"
+            element={<Item findProduct={findProduct} addToCart={addToCart} />}
+          />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
