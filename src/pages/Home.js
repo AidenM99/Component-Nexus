@@ -10,7 +10,7 @@ const Home = ({ linkStyle }) => {
       sx={{
         background: `url(${Background}) no-repeat fixed center`,
         backgroundPosition: "58% 0",
-        height: "calc(100vh - 4rem)",
+        height: "calc(100vh - 5rem)",
         backgroundSize: "cover",
       }}
     >
