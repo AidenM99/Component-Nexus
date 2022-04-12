@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Nav from "./components/Nav";
-import Cart from "./components/Cart";
+import Nav from "./components/Navbar/Nav";
+import Cart from "./components/ShoppingCart/Cart";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
@@ -10,7 +10,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import allProducts from "./utils/products/products";
 import { useEffect, useRef, useState } from "react";
 import Item from "./pages/Item";
-import products from "./utils/products/products";
 
 const theme = createTheme({
   palette: {
@@ -37,15 +36,29 @@ const theme = createTheme({
 });
 
 function App() {
-  const [productDisplay, setProductDisplay] = useState(allProducts);
-  const [activeFilters, setActiveFilters] = useState([]);
   const [drawerState, setDrawerState] = useState(false);
   const [cart, setCart] = useState([]);
+  const [activeFilters, setActiveFilters] = useState([]);
+  const [productDisplay, setProductDisplay] = useState(allProducts);
+
+  const toggleDrawer = (open) => {
+    setDrawerState(open);
+  };
+
+  const addToCart = (product) => {
+    setCart((prevState) => [...prevState, product]);
+  };
+
+  const findProduct = (id) => {
+    return allProducts.filter((product) => product.id === id);
+  };
+
   const notInitialRender = useRef(false);
 
-  const linkStyle = {
-    textDecoration: "none",
-    color: "#f5f5f5",
+  const filterProducts = (category, e) => {
+    e.target.checked
+      ? setActiveFilters([...activeFilters, category])
+      : setActiveFilters(activeFilters.filter((filter) => filter !== category));
   };
 
   useEffect(() => {
@@ -62,40 +75,18 @@ function App() {
     }
   }, [activeFilters]);
 
-  const filterProducts = (category, e) => {
-    e.target.checked
-      ? setActiveFilters([...activeFilters, category])
-      : setActiveFilters(activeFilters.filter((filter) => filter !== category));
-  };
-
-  const toggleDrawer = (open) => {
-    setDrawerState(open);
-  };
-
-  const addToCart = (product) => {
-    setCart((prevState) => [...prevState, product]);
-  };
-
-  const findProduct = (id) => {
-    return allProducts.filter((product) => product.id === id);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <Nav linkStyle={linkStyle} toggleDrawer={toggleDrawer} cart={cart} />
+        <Nav toggleDrawer={toggleDrawer} cart={cart} />
         <Cart
           drawerState={drawerState}
           toggleDrawer={toggleDrawer}
           cart={cart}
         />
         <Routes>
-          <Route
-            path="/"
-            element={<Home linkStyle={linkStyle} />}
-            onEnter={() => addToCart()}
-          />
+          <Route path="/" element={<Home />} onEnter={() => addToCart()} />
           <Route
             path="/products"
             element={
