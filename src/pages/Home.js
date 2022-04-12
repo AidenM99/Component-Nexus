@@ -2,7 +2,7 @@ import { Button, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Background from "../assets/images/background.jpg";
 
-const Home = ({ linkStyle }) => {
+const Home = () => {
   return (
     <Grid
       container
@@ -38,7 +38,7 @@ const Home = ({ linkStyle }) => {
           multiprocessors for the most realistic ray-traced graphics and
           cutting-edge AI features.
         </Typography>
-        <Link to="/products" style={linkStyle}>
+        <Link to="/products" style={{ textDecoration: "none" }}>
           <Button variant="contained" sx={{ mt: "0.75rem" }}>
             Shop Now
           </Button>
