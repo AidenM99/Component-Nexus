@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const NavLinks = ({ linkStyle }) => {
+const NavLinks = () => {
   const pages = ["Home", "Products", "Contact"];
 
   return (
@@ -13,7 +13,11 @@ const NavLinks = ({ linkStyle }) => {
       }}
     >
       {pages.map((page) => (
-        <Link key={page} to={page === "Home" ? "/" : page} style={linkStyle}>
+        <Link
+          key={page}
+          to={page === "Home" ? "/" : page}
+          style={{ textDecoration: "none" }}
+        >
           <Button color="light">{page}</Button>
         </Link>
       ))}
