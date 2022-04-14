@@ -77,6 +77,10 @@ function App() {
       : setActiveFilters(activeFilters.filter((filter) => filter !== category));
   };
 
+  const removeCartItem = (product) => {
+    setCart(cart.filter((item) => item.id !== product.id));
+  };
+
   const notInitialRender = useRef(false);
 
   useEffect(() => {
@@ -103,6 +107,7 @@ function App() {
           toggleDrawer={toggleDrawer}
           cart={cart}
           handleQuantityChange={handleQuantityChange}
+          removeCartItem={removeCartItem}
         />
         <Routes>
           <Route path="/" element={<Home />} onEnter={() => addToCart()} />

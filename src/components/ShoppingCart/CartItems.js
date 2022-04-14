@@ -1,4 +1,11 @@
-import { Box, Typography, Grid, TextField, MenuItem } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Grid,
+  TextField,
+  MenuItem,
+  Button,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const StyledImageContainer = styled(Box)(() => ({
@@ -29,7 +36,7 @@ const StyledFlexContainer = styled(Box)(() => ({
   display: "flex",
 }));
 
-const CartItems = ({ cart, handleQuantityChange }) => {
+const CartItems = ({ cart, handleQuantityChange, removeCartItem }) => {
   const quantities = [1, 2, 3, 4, 5];
 
   return (
@@ -78,9 +85,15 @@ const CartItems = ({ cart, handleQuantityChange }) => {
                   ))}
                 </TextField>
                 <StyledFlexEnd>
-                  <Typography letterSpacing="2px" fontSize="0.75rem">
-                    Remove
-                  </Typography>
+                  <Button
+                    variant="text"
+                    color="secondary"
+                    onClick={() => removeCartItem(product)}
+                  >
+                    <Typography letterSpacing="2px" fontSize="0.75rem">
+                      Remove
+                    </Typography>
+                  </Button>
                 </StyledFlexEnd>
               </StyledFlexContainer>
             </StyledItemDetails>
