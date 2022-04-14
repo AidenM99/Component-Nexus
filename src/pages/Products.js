@@ -3,15 +3,11 @@ import ProductCard from "../components/ProductCard";
 import Filters from "../components/Filters";
 import { useEffect } from "react";
 
-const Products = ({
-  productDisplay,
-  setProductDisplay,
-  allProducts,
-  filterProducts,
-}) => {
+const Products = ({ productDisplay, filterProducts, setActiveFilters }) => {
   useEffect(() => {
-    setProductDisplay(allProducts);
-  }, [allProducts, setProductDisplay]);
+    setActiveFilters([]);
+  }, []);
+
   return (
     <Box>
       <Typography
