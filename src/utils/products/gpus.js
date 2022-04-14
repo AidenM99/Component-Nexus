@@ -10,7 +10,9 @@ const gpus = [
     category: "Graphics Cards",
     name: "EVGA GeForce RTX 3090",
     description: "EVGA GeForce RTX 3090",
-    price: "£1,857.00",
+    price: "1,857.00",
+    originalPrice: "1857.00",
+    quantity: "1",
     image: RTX3090,
   },
   {
@@ -18,7 +20,9 @@ const gpus = [
     category: "Graphics Cards",
     name: "EVGA GeForce RTX 3080 Ti",
     description: "EVGA GeForce RTX 3080 Ti",
-    price: "£1,356.00",
+    price: "1,356.00",
+    originalPrice: "1356.00",
+    quantity: "1",
     image: RTX3080,
   },
   {
@@ -26,7 +30,9 @@ const gpus = [
     category: "Graphics Cards",
     name: "EVGA GeForce RTX 3070 Ti",
     description: "EVGA GeForce RTX 3070 Ti",
-    price: "£753.50",
+    price: "753.50",
+    originalPrice: "753.50",
+    quantity: "1",
     image: RTX3070,
   },
   {
@@ -34,7 +40,9 @@ const gpus = [
     category: "Graphics Cards",
     name: "EVGA GeForce RTX 3060",
     description: "EVGA GeForce RTX 3060",
-    price: "£475.34",
+    price: "475.34",
+    originalPrice: "475.34",
+    quantity: "1",
     image: RTX3060,
   },
 ];

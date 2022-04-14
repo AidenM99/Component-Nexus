@@ -11,7 +11,9 @@ const ram = [
     name: "Corsair Vengeance LPX 16GB",
     description:
       "Corsair Vengeance LPX 16 GB (1 x 16 GB) DDR4-3000 CL16 Memory",
-    price: "£35.00",
+    price: "35.00",
+    originalPrice: "35.00",
+    quantity: "1",
     image: CorsairVengeance,
   },
   {
@@ -19,7 +21,9 @@ const ram = [
     category: "Memory",
     name: "Kingston HyperX Fury 16GB",
     description: "Kingston HyperX Fury 16 GB (2 x 8 GB) DDR4-2666 CL16 Memory",
-    price: "£83.67",
+    price: "83.67",
+    originalPrice: "83.67",
+    quantity: "1",
     image: KingstonHyperXFury,
   },
   {
@@ -28,7 +32,9 @@ const ram = [
     name: "Team T-Force Night Hawk RGB 16 GB",
     description:
       "Team T-Force Night Hawk RGB 16 GB (2 x 8 GB) DDR4-3600 CL18 Memory",
-    price: "£75.00",
+    price: "75.00",
+    originalPrice: "75.00",
+    quantity: "1",
     image: NightHawk,
   },
   {
@@ -37,7 +43,9 @@ const ram = [
     name: "GeIL EVO SPEAR Phantom Gaming 16 GB",
     description:
       "GeIL EVO SPEAR Phantom Gaming 16 GB (2 x 8 GB) DDR4-3000 CL16 Memory",
-    price: "£77.42",
+    price: "77.42",
+    originalPrice: "77.42",
+    quantity: "1",
     image: EvoSpear,
   },
 ];

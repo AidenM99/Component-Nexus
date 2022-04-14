@@ -10,7 +10,9 @@ const processors = [
     category: "Processors",
     name: "AMD Ryzen 5 5600X",
     description: "AMD Ryzen 5 5600X 3.7 GHz 6-Core Processor",
-    price: "£211.55",
+    price: "211.55",
+    originalPrice: "211.55",
+    quantity: "1",
     image: Ryzen5600X,
   },
   {
@@ -18,7 +20,9 @@ const processors = [
     category: "Processors",
     name: "AMD Ryzen 9 5950X",
     description: "AMD Ryzen 9 5950X 3.4 GHz 16-Core Processor",
-    price: "£504.95",
+    price: "504.95",
+    originalPrice: "504.95",
+    quantity: "1",
     image: Ryzen5950X,
   },
   {
@@ -26,7 +30,9 @@ const processors = [
     category: "Processors",
     name: "Intel Core i5-12400F",
     description: "Intel Core i5-12400F 2.5 GHz 6-Core Processor",
-    price: "£162.99",
+    price: "162.99",
+    originalPrice: "162.99",
+    quantity: "1",
     image: Intel12400F,
   },
   {
@@ -34,7 +40,9 @@ const processors = [
     category: "Processors",
     name: "Intel Core i5-12600K",
     description: "Intel Core i5-12600K 3.7 GHz 10-Core Processor",
-    price: "£258.59",
+    price: "258.59",
+    originalPrice: "258.59",
+    quantity: "1",
     image: Intel12600K,
   },
 ];
