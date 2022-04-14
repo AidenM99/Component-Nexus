@@ -71,13 +71,13 @@ function App() {
     return allProducts.filter((product) => product.id === id);
   };
 
-  const notInitialRender = useRef(false);
-
   const filterProducts = (category, e) => {
     e.target.checked
       ? setActiveFilters([...activeFilters, category])
       : setActiveFilters(activeFilters.filter((filter) => filter !== category));
   };
+
+  const notInitialRender = useRef(false);
 
   useEffect(() => {
     if (notInitialRender.current) {
@@ -111,9 +111,8 @@ function App() {
             element={
               <Products
                 productDisplay={productDisplay}
-                setProductDisplay={setProductDisplay}
-                allProducts={allProducts}
                 filterProducts={filterProducts}
+                setActiveFilters={setActiveFilters}
               />
             }
           />
