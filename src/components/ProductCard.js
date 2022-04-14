@@ -1,6 +1,38 @@
-import { Grid } from "@mui/material";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  createTheme,
+  Typography,
+  Grid,
+} from "@mui/material";
 import { Link } from "react-router-dom";
-import StyledCard from "./MUIStyles/StyledCard";
+import { styled } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/system";
+
+const theme = createTheme({
+  shadows: Array(25).fill("none"),
+});
+
+const StyledProductCard = styled(Card)(() => ({
+  "&:hover .MuiCardMedia-root": { transform: "scale(1.1)" },
+}));
+
+const StyledMedia = styled(CardMedia)(() => ({
+  height: "100%",
+  margin: "auto",
+  maxWidth: "15rem",
+  mixBlendMode: "multiply",
+  objectFit: "contain",
+  transition: "all 0.5s",
+  width: "100%",
+}));
+
+const StyledActionArea = styled(CardActionArea)(() => ({
+  padding: "5rem",
+  height: "350px",
+}));
 
 const ProductCard = ({ productDisplay }) => {
   return (
@@ -11,7 +43,30 @@ const ProductCard = ({ productDisplay }) => {
             to={`/products/${product.id}`}
             style={{ color: "inherit", textDecoration: "none" }}
           >
-            <StyledCard product={product}></StyledCard>
+            <ThemeProvider theme={theme}>
+              <StyledProductCard>
+                <StyledActionArea
+                  sx={{
+                    background: "rgb(242, 242, 242)",
+                  }}
+                >
+                  <StyledMedia
+                    component="img"
+                    image={product.image}
+                    alt="product-image"
+                  ></StyledMedia>
+                </StyledActionArea>
+                <CardContent sx={{ background: "#fff", px: "0", pt: "0.5rem" }}>
+                  <Typography fontWeight="700">{product.name}</Typography>
+                  <Typography letterSpacing="2px">
+                    £
+                    {product.price.toLocaleString(undefined, {
+                      minimumFractionDigits: 2,
+                    })}
+                  </Typography>
+                </CardContent>
+              </StyledProductCard>
+            </ThemeProvider>
           </Link>
         </Grid>
       ))}
