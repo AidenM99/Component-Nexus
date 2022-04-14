@@ -1,5 +1,7 @@
 import { Drawer, Grid, Typography } from "@mui/material";
 import CartItems from "./CartItems";
+import EmptyCart from "./EmptyCart";
+import CloseButton from "./CloseButton";
 
 const Cart = ({
   drawerState,
@@ -17,21 +19,30 @@ const Cart = ({
         sx: { width: "35%" },
       }}
     >
-      <Grid container direction="column" sx={{ padding: "5rem 7.5%" }}>
-        <Grid item>
-          <Typography variant="h4">
+      <CloseButton toggleDrawer={toggleDrawer} />
+      <Grid
+        container
+        direction="column"
+        sx={{ padding: "7.5rem 10%", flexGrow: 1 }}
+      >
+        <Grid item sx={{ mb: "2rem" }}>
+          <Typography variant="h4" fontWeight={600} lineHeight="32px">
             Your
             <br />
             Shopping
             <br />
-            Bag
+            Cart
           </Typography>
         </Grid>
-        <CartItems
-          cart={cart}
-          handleQuantityChange={handleQuantityChange}
-          removeCartItem={removeCartItem}
-        />
+        {cart.length === 0 ? (
+          <EmptyCart toggleDrawer={toggleDrawer} />
+        ) : (
+          <CartItems
+            cart={cart}
+            handleQuantityChange={handleQuantityChange}
+            removeCartItem={removeCartItem}
+          />
+        )}
       </Grid>
     </Drawer>
   );
