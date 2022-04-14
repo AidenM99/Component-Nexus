@@ -1,4 +1,4 @@
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, TextField, MenuItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const StyledImageContainer = styled(Box)(() => ({
@@ -16,19 +16,27 @@ const StyledImage = styled(Box)(() => ({
 const StyledItemDetails = styled(Box)(() => ({
   display: "flex",
   flex: "1",
-  padding: "1rem 0",
+  paddingTop: "1rem",
 }));
 
-const StyledProductPrice = styled(Box)(() => ({
+const StyledFlexEnd = styled(Box)(() => ({
   display: "flex",
   flexGrow: "1",
   justifyContent: "flex-end",
 }));
 
-export default function StyledCartItems({ product }) {
+const StyledFlexContainer = styled(Box)(() => ({
+  display: "flex",
+}));
+
+export default function StyledCartItems({
+  product,
+  quantities,
+  handleQuantityChange,
+}) {
   return (
     <Grid item key={product.id} sx={{ my: "0.5rem" }}>
-      <Box sx={{ display: "flex" }}>
+      <StyledFlexContainer>
         <StyledImageContainer>
           <StyledImage
             component="img"
@@ -38,15 +46,45 @@ export default function StyledCartItems({ product }) {
             width="100%"
           ></StyledImage>
         </StyledImageContainer>
-        <StyledItemDetails>
-          <Box>
+        <StyledItemDetails sx={{ flexDirection: "column" }}>
+          <StyledFlexContainer>
             <Typography fontWeight="700">{product.name}</Typography>
-          </Box>
-          <StyledProductPrice>
-            <Typography letterSpacing="2px">{product.price}</Typography>
-          </StyledProductPrice>
+            <StyledFlexEnd>
+              <Typography letterSpacing="2px">
+                £
+                {product.price.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                })}
+              </Typography>
+            </StyledFlexEnd>
+          </StyledFlexContainer>
+          <StyledFlexContainer
+            sx={{
+              flexGrow: "1",
+              alignItems: "flex-end",
+            }}
+          >
+            <TextField
+              select
+              label="Quantity"
+              value={product.quantity}
+              onChange={(e) => handleQuantityChange(e, product)}
+              sx={{ flex: "1" }}
+            >
+              {quantities.map((value) => (
+                <MenuItem key={value} value={value}>
+                  {value}
+                </MenuItem>
+              ))}
+            </TextField>
+            <StyledFlexEnd>
+              <Typography letterSpacing="2px" fontSize="0.75rem">
+                Remove
+              </Typography>
+            </StyledFlexEnd>
+          </StyledFlexContainer>
         </StyledItemDetails>
-      </Box>
+      </StyledFlexContainer>
     </Grid>
   );
 }
