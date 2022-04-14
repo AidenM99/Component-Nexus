@@ -46,7 +46,25 @@ function App() {
   };
 
   const addToCart = (product) => {
+    if (cart.some((item) => item.id === product.id)) return;
+
     setCart((prevState) => [...prevState, product]);
+  };
+
+  const handleQuantityChange = (e, product) => {
+    setCart((prevState) => [
+      ...prevState.map((item) => {
+        if (item.id === product.id) {
+          return {
+            ...item,
+            price: item.originalPrice * e.target.value,
+            quantity: e.target.value,
+          };
+        } else {
+          return item;
+        }
+      }),
+    ]);
   };
 
   const findProduct = (id) => {
@@ -84,6 +102,7 @@ function App() {
           drawerState={drawerState}
           toggleDrawer={toggleDrawer}
           cart={cart}
+          handleQuantityChange={handleQuantityChange}
         />
         <Routes>
           <Route path="/" element={<Home />} onEnter={() => addToCart()} />
