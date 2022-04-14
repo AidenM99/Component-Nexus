@@ -46,19 +46,31 @@ function App() {
   };
 
   const addToCart = (product) => {
-    if (cart.some((item) => item.id === product.id)) return;
+    if (cart.some((item) => item.id === product.id)) {
+      const index = cart
+        .map(function (item) {
+          return item.id;
+        })
+        .indexOf(product.id);
+
+      if (cart[index].quantity < 5) {
+        handleQuantityChange(cart[index], parseInt(cart[index].quantity) + 1);
+      }
+
+      return;
+    }
 
     setCart((prevState) => [...prevState, product]);
   };
 
-  const handleQuantityChange = (e, product) => {
+  const handleQuantityChange = (product, ...args) => {
     setCart((prevState) => [
       ...prevState.map((item) => {
         if (item.id === product.id) {
           return {
             ...item,
-            price: item.originalPrice * e.target.value,
-            quantity: e.target.value,
+            price: item.originalPrice * args[0],
+            quantity: args[0],
           };
         } else {
           return item;
