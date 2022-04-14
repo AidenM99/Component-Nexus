@@ -1,7 +1,7 @@
 import { Drawer, Grid, Typography } from "@mui/material";
 import CartItems from "./CartItems";
 
-const Cart = ({ drawerState, toggleDrawer, cart }) => {
+const Cart = ({ drawerState, toggleDrawer, cart, handleQuantityChange }) => {
   return (
     <Drawer
       anchor={"right"}
@@ -21,7 +21,7 @@ const Cart = ({ drawerState, toggleDrawer, cart }) => {
             Bag
           </Typography>
         </Grid>
-        <CartItems cart={cart} />
+        <CartItems cart={cart} handleQuantityChange={handleQuantityChange} />
       </Grid>
     </Drawer>
   );
