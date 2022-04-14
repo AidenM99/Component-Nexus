@@ -49,7 +49,12 @@ export default function StyledCard({ product }) {
         </StyledActionArea>
         <CardContent sx={{ background: "#fff", px: "0", pt: "0.5rem" }}>
           <Typography fontWeight="700">{product.name}</Typography>
-          <Typography letterSpacing="2px">{product.price}</Typography>
+          <Typography letterSpacing="2px">
+            £
+            {product.price.toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+            })}
+          </Typography>
         </CardContent>
       </StyledProductCard>
     </ThemeProvider>
