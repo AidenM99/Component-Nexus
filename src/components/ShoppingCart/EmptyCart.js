@@ -29,8 +29,9 @@ const EmptyCart = ({ toggleDrawer }) => {
       <StyledBox>
         <Link to={"/products"} style={{ textDecoration: "none" }}>
           <Button
-            variant="contained"
+            variant="outlined"
             color="secondary"
+            size="large"
             onClick={() => toggleDrawer(false)}
           >
             Browse Products
