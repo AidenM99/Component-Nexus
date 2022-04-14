@@ -55,7 +55,7 @@ const CartItems = ({ cart, handleQuantityChange, removeCartItem }) => {
             </StyledImageContainer>
             <StyledItemDetails sx={{ flexDirection: "column" }}>
               <StyledFlexContainer>
-                <Typography fontWeight="700">{product.name}</Typography>
+                <Typography fontWeight={700}>{product.name}</Typography>
                 <StyledFlexEnd>
                   <Typography letterSpacing="2px">
                     £
@@ -75,7 +75,9 @@ const CartItems = ({ cart, handleQuantityChange, removeCartItem }) => {
                   select
                   label="Quantity"
                   value={product.quantity}
-                  onChange={(e) => handleQuantityChange(e, product)}
+                  onChange={(e) =>
+                    handleQuantityChange(product, e.target.value)
+                  }
                   sx={{ flex: "1" }}
                 >
                   {quantities.map((value) => (
