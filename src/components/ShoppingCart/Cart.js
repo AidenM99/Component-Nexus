@@ -1,4 +1,4 @@
-import { Drawer, Grid, Typography } from "@mui/material";
+import { Button, Drawer, Grid, Typography } from "@mui/material";
 import CartItems from "./CartItems";
 import EmptyCart from "./EmptyCart";
 import CloseButton from "./CloseButton";
@@ -16,7 +16,9 @@ const Cart = ({
       open={drawerState}
       onClose={() => toggleDrawer(false)}
       PaperProps={{
-        sx: { width: "35%" },
+        sx: {
+          width: { xs: "100%", md: "50%", lg: "50%", xl: "35%" },
+        },
       }}
     >
       <CloseButton toggleDrawer={toggleDrawer} />
