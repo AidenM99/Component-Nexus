@@ -1,12 +1,37 @@
-import { Box, Grid, Typography } from "@mui/material";
-import ProductCard from "../components/ProductCard";
 import Filters from "../components/Filters";
-import { useEffect } from "react";
+import allProducts from "../utils/products/products";
+import ProductCard from "../components/ProductCard";
+import { useEffect, useState, useRef } from "react";
+import { Box, Grid, Typography } from "@mui/material";
 
-const Products = ({ productDisplay, filterProducts, setActiveFilters }) => {
+const Products = () => {
+  const notInitialRender = useRef(false);
+  const [activeFilters, setActiveFilters] = useState([]);
+  const [productDisplay, setProductDisplay] = useState(allProducts);
+
+  const filterProducts = (category, e) => {
+    e.target.checked
+      ? setActiveFilters([...activeFilters, category])
+      : setActiveFilters(activeFilters.filter((filter) => filter !== category));
+  };
+
   useEffect(() => {
     setActiveFilters([]);
   }, []);
+
+  useEffect(() => {
+    if (notInitialRender.current) {
+      const newProductDisplay = allProducts.filter((product) =>
+        activeFilters.includes(product.category)
+      );
+
+      activeFilters.length === 0
+        ? setProductDisplay(allProducts)
+        : setProductDisplay(newProductDisplay);
+    } else {
+      notInitialRender.current = true;
+    }
+  }, [activeFilters]);
 
   return (
     <Box>

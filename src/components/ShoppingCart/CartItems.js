@@ -1,23 +1,19 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { useEffect } from "react";
 import CartImage from "./CartImage";
 import CartItemDetails from "./CartItemDetails";
+import { styled } from "@mui/material/styles";
+import { Box, Button, Grid, Typography } from "@mui/material";
 
 const StyledFlexContainer = styled(Box)(() => ({
   display: "flex",
 }));
 
-const CartItems = ({ cart, handleQuantityChange, removeCartItem }) => {
-  const calculateSubtotal = () => {
-    return cart.reduce(
-      (previousValue, currentValue) =>
-        previousValue +
-        parseFloat(currentValue.originalPrice * currentValue.quantity),
-      0
-    );
-  };
-
+const CartItems = ({
+  cart,
+  setCart,
+  removeCartItem,
+  calculateSubtotal,
+  handleQuantityChange,
+}) => {
   return (
     <>
       {cart.map((product) => (
@@ -25,9 +21,11 @@ const CartItems = ({ cart, handleQuantityChange, removeCartItem }) => {
           <StyledFlexContainer>
             <CartImage product={product} />
             <CartItemDetails
+              cart={cart}
+              setCart={setCart}
               product={product}
-              handleQuantityChange={handleQuantityChange}
               removeCartItem={removeCartItem}
+              handleQuantityChange={handleQuantityChange}
             />
           </StyledFlexContainer>
         </Grid>

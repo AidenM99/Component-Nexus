@@ -1,15 +1,28 @@
-import { Button, Drawer, Grid, Typography } from "@mui/material";
 import CartItems from "./CartItems";
 import EmptyCart from "./EmptyCart";
 import CloseButton from "./CloseButton";
+import { Drawer, Grid, Typography } from "@mui/material";
 
 const Cart = ({
+  cart,
+  setCart,
   drawerState,
   toggleDrawer,
-  cart,
   handleQuantityChange,
-  removeCartItem,
 }) => {
+  const calculateSubtotal = () => {
+    return cart.reduce(
+      (previousValue, currentValue) =>
+        previousValue +
+        parseFloat(currentValue.originalPrice * currentValue.quantity),
+      0
+    );
+  };
+
+  const removeCartItem = (product) => {
+    setCart(cart.filter((item) => item.id !== product.id));
+  };
+
   return (
     <Drawer
       anchor={"right"}
@@ -41,8 +54,10 @@ const Cart = ({
         ) : (
           <CartItems
             cart={cart}
-            handleQuantityChange={handleQuantityChange}
+            setCart={setCart}
             removeCartItem={removeCartItem}
+            calculateSubtotal={calculateSubtotal}
+            handleQuantityChange={handleQuantityChange}
           />
         )}
       </Grid>

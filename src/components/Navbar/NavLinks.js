@@ -1,5 +1,5 @@
-import { Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { Box, Button } from "@mui/material";
 
 const NavLinks = () => {
   const pages = ["Home", "Products", "Contact"];

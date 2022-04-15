@@ -1,4 +1,5 @@
 import FilterListIcon from "@mui/icons-material/FilterList";
+import { styled } from "@mui/material/styles";
 import {
   Box,
   Typography,
@@ -6,7 +7,6 @@ import {
   FormGroup,
   FormControlLabel,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 
 const StyledBox = styled(Box)(() => ({
   display: "flex",

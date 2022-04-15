@@ -1,11 +1,11 @@
-import { AppBar, Toolbar, createTheme, Box, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { ThemeProvider } from "@mui/system";
+import NavLinks from "./NavLinks";
+import NavMenu from "./NavMenu";
+import OpenCartButton from "./OpenCartButton";
 import MemoryIcon from "@mui/icons-material/Memory";
 import { Link } from "react-router-dom";
-import NavLinks from "../Navbar/NavLinks";
-import NavMenu from "../Navbar/NavMenu";
-import CartMenu from "../ShoppingCart/CartMenu";
+import { styled } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/system";
+import { AppBar, Toolbar, createTheme, Box, Typography } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -66,7 +66,7 @@ const Nav = ({ toggleDrawer, cart }) => {
           </StyledBox>
           <StyledBox>
             <NavMenu />
-            <CartMenu cart={cart} toggleDrawer={toggleDrawer} />
+            <OpenCartButton cart={cart} toggleDrawer={toggleDrawer} />
           </StyledBox>
         </StyledToolbar>
       </StyledAppBar>

@@ -1,15 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Item from "./views/Item";
+import Home from "./views/Home";
+import Contact from "./views/Contact";
+import Products from "./views/Products";
 import Nav from "./components/Navbar/Nav";
 import Cart from "./components/ShoppingCart/Cart";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Contact from "./pages/Contact";
-import "./assets/fonts/GeForce/GeForce-Bold.ttf";
 import CssBaseline from "@mui/material/CssBaseline";
-import allProducts from "./utils/products/products";
-import { useEffect, useRef, useState } from "react";
-import Item from "./pages/Item";
+import "./assets/fonts/GeForce/GeForce-Bold.ttf";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
@@ -36,31 +35,11 @@ const theme = createTheme({
 });
 
 function App() {
-  const [drawerState, setDrawerState] = useState(false);
   const [cart, setCart] = useState([]);
-  const [activeFilters, setActiveFilters] = useState([]);
-  const [productDisplay, setProductDisplay] = useState(allProducts);
+  const [drawerState, setDrawerState] = useState(false);
 
   const toggleDrawer = (open) => {
     setDrawerState(open);
-  };
-
-  const addToCart = (product) => {
-    if (cart.some((item) => item.id === product.id)) {
-      const index = cart
-        .map(function (item) {
-          return item.id;
-        })
-        .indexOf(product.id);
-
-      if (cart[index].quantity < 5) {
-        handleQuantityChange(cart[index], parseInt(cart[index].quantity) + 1);
-      }
-
-      return;
-    }
-
-    setCart((prevState) => [...prevState, product]);
   };
 
   const handleQuantityChange = (product, ...args) => {
@@ -79,64 +58,31 @@ function App() {
     ]);
   };
 
-  const findProduct = (id) => {
-    return allProducts.filter((product) => product.id === id);
-  };
-
-  const filterProducts = (category, e) => {
-    e.target.checked
-      ? setActiveFilters([...activeFilters, category])
-      : setActiveFilters(activeFilters.filter((filter) => filter !== category));
-  };
-
-  const removeCartItem = (product) => {
-    setCart(cart.filter((item) => item.id !== product.id));
-  };
-
-  const notInitialRender = useRef(false);
-
-  useEffect(() => {
-    if (notInitialRender.current) {
-      const newProductDisplay = allProducts.filter((product) =>
-        activeFilters.includes(product.category)
-      );
-
-      activeFilters.length === 0
-        ? setProductDisplay(allProducts)
-        : setProductDisplay(newProductDisplay);
-    } else {
-      notInitialRender.current = true;
-    }
-  }, [activeFilters]);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
         <Nav toggleDrawer={toggleDrawer} cart={cart} />
         <Cart
+          cart={cart}
+          setCart={setCart}
           drawerState={drawerState}
           toggleDrawer={toggleDrawer}
-          cart={cart}
           handleQuantityChange={handleQuantityChange}
-          removeCartItem={removeCartItem}
         />
         <Routes>
-          <Route path="/" element={<Home />} onEnter={() => addToCart()} />
-          <Route
-            path="/products"
-            element={
-              <Products
-                productDisplay={productDisplay}
-                filterProducts={filterProducts}
-                setActiveFilters={setActiveFilters}
-              />
-            }
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/products/:id"
-            element={<Item findProduct={findProduct} addToCart={addToCart} />}
+            element={
+              <Item
+                cart={cart}
+                setCart={setCart}
+                handleQuantityChange={handleQuantityChange}
+              />
+            }
           />
         </Routes>
       </BrowserRouter>

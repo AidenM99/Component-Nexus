@@ -1,5 +1,5 @@
-import { Box, Badge, IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Box, Badge, IconButton } from "@mui/material";
 
 const CartMenu = ({ toggleDrawer, cart }) => {
   return (

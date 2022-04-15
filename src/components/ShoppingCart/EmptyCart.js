@@ -1,7 +1,7 @@
-import { Box, Button, Typography } from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+import { Box, Button, Typography } from "@mui/material";
 
 const Container = styled(Box)(() => ({
   display: "flex",

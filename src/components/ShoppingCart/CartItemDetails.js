@@ -1,5 +1,5 @@
-import { Box, Typography, TextField, MenuItem, Button } from "@mui/material";
 import { styled } from "@mui/system";
+import { Box, Typography, TextField, MenuItem, Button } from "@mui/material";
 
 const StyledFlexContainer = styled(Box)(() => ({
   display: "flex",
@@ -17,7 +17,7 @@ const StyledFlexEnd = styled(Box)(() => ({
   justifyContent: "flex-end",
 }));
 
-const CartItemDetails = ({ product, handleQuantityChange, removeCartItem }) => {
+const CartItemDetails = ({ product, removeCartItem, handleQuantityChange }) => {
   const quantities = [1, 2, 3, 4, 5];
 
   return (
