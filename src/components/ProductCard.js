@@ -38,7 +38,7 @@ const ProductCard = ({ productDisplay }) => {
   return (
     <>
       {productDisplay.map((product) => (
-        <Grid key={product.id} item xs={8} md={6} lg={4}>
+        <Grid key={product.id} item xs={12} sm={6} md={6} lg={4}>
           <Link
             to={`/products/${product.id}`}
             style={{ color: "inherit", textDecoration: "none" }}
@@ -54,6 +54,7 @@ const ProductCard = ({ productDisplay }) => {
                     component="img"
                     image={product.image}
                     alt="product-image"
+                    draggable={false}
                   ></StyledMedia>
                 </StyledActionArea>
                 <CardContent sx={{ background: "#fff", px: "0", pt: "0.5rem" }}>
