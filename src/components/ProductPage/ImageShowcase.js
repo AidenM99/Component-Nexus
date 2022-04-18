@@ -45,12 +45,17 @@ const ImageShowcase = ({ product, showcase, setShowcase }) => {
           component="img"
           src={showcase}
           alt="product-image"
+          draggable={false}
         ></StyledImage>
       </ShowcaseImageContainer>
       <GalleryContainer>
         {product[0].gallery.map((image) => (
           <ProductButton onClick={() => setShowcase(image)}>
-            <StyledImage component="img" src={image}></StyledImage>
+            <StyledImage
+              component="img"
+              src={image}
+              draggable={false}
+            ></StyledImage>
           </ProductButton>
         ))}
       </GalleryContainer>
