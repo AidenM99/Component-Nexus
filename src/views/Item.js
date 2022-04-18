@@ -1,6 +1,17 @@
 import allProducts from "../utils/products/products";
 import { useParams } from "react-router-dom";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { useState } from "react";
+import ImageShowcase from "../components/ProductPage/ImageShowcase";
+import ProductDetails from "../components/ProductPage/ProductDetails";
+
+const GridContainer = styled(Grid)(() => ({
+  alignItems: "center",
+  display: "flex",
+  margin: "auto",
+  maxWidth: "1400px",
+}));
 
 const Item = ({ cart, setCart, handleQuantityChange }) => {
   const { id } = useParams();
@@ -8,6 +19,10 @@ const Item = ({ cart, setCart, handleQuantityChange }) => {
   const findProduct = (id) => {
     return allProducts.filter((product) => product.id === id);
   };
+
+  const product = findProduct(id);
+
+  const [showcase, setShowcase] = useState(product[0].image);
 
   const addToCart = (product) => {
     if (cart.some((item) => item.id === product.id)) {
@@ -27,16 +42,19 @@ const Item = ({ cart, setCart, handleQuantityChange }) => {
     setCart((prevState) => [...prevState, product]);
   };
 
-  const product = findProduct(id);
-
   return (
-    <Box>
-      <Typography>{product[0].name}</Typography>
-      <Typography>{product[0].category}</Typography>
-      <Typography>{product[0].description}</Typography>
-      <Button variant="contained" onClick={() => addToCart(product[0])}>
-        Add To Cart
-      </Button>
+    <Box sx={{ background: "rgb(242 ,242 ,242)" }}>
+      <GridContainer
+        container
+        sx={{ height: { xs: "auto", md: "calc(100vh - 5rem)" } }}
+      >
+        <ImageShowcase
+          product={product}
+          showcase={showcase}
+          setShowcase={setShowcase}
+        />
+        <ProductDetails product={product} addToCart={addToCart} />
+      </GridContainer>
     </Box>
   );
 };
