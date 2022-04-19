@@ -5,7 +5,9 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 const GridItem = styled(Grid)(() => ({
   display: "flex",
   flexDirection: "column",
-  height: "35rem",
+  height: "60vh",
+  minHeight: "28rem",
+  maxHeight: "35rem",
   padding: "1rem",
 }));
 
@@ -25,7 +27,12 @@ const Wrapper = styled(Box)(() => ({
   padding: "1rem",
 }));
 
-const ProductDetails = ({ product, addToCart }) => {
+const ProductDetails = ({
+  product,
+  addToCart,
+  handleClick,
+  itemLimitReached,
+}) => {
   return (
     <GridItem item xs={12} md={6}>
       <Wrapper>
@@ -74,7 +81,11 @@ const ProductDetails = ({ product, addToCart }) => {
             variant="contained"
             size="large"
             fullWidth={true}
-            onClick={() => addToCart(product[0])}
+            onClick={() => {
+              addToCart(product[0]);
+              handleClick();
+              itemLimitReached(product[0]);
+            }}
           >
             Add to Cart
           </Button>
