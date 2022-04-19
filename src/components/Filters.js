@@ -25,6 +25,7 @@ const NotchedBox = styled(Box)(() => ({
 
 const StyledForm = styled(FormGroup)(() => ({
   justifyContent: "center",
+  alignItems: "center",
 }));
 
 const Filters = ({ filterProducts }) => {
@@ -50,12 +51,7 @@ const Filters = ({ filterProducts }) => {
       <NotchedBox>
         <StyledForm row>
           {filterItems.map((filterItem) => (
-            <Box
-              key={filterItem}
-              sx={{
-                margin: "0 3.5%",
-              }}
-            >
+            <Box key={filterItem} sx={{ margin: "0 3.5%", width: "135px" }}>
               <FormControlLabel
                 sx={{ margin: "0" }}
                 control={
