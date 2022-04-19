@@ -10,6 +10,7 @@ const StyledFlexContainer = styled(Box)(() => ({
 const CartItems = ({
   cart,
   setCart,
+  setItemLimit,
   removeCartItem,
   calculateSubtotal,
   handleQuantityChange,
@@ -21,9 +22,8 @@ const CartItems = ({
           <StyledFlexContainer>
             <CartImage product={product} />
             <CartItemDetails
-              cart={cart}
-              setCart={setCart}
               product={product}
+              setItemLimit={setItemLimit}
               removeCartItem={removeCartItem}
               handleQuantityChange={handleQuantityChange}
             />

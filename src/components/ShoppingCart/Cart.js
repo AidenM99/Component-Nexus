@@ -6,6 +6,7 @@ import { Drawer, Grid, Typography } from "@mui/material";
 const Cart = ({
   cart,
   setCart,
+  setItemLimit,
   drawerState,
   toggleDrawer,
   handleQuantityChange,
@@ -55,6 +56,7 @@ const Cart = ({
           <CartItems
             cart={cart}
             setCart={setCart}
+            setItemLimit={setItemLimit}
             removeCartItem={removeCartItem}
             calculateSubtotal={calculateSubtotal}
             handleQuantityChange={handleQuantityChange}
