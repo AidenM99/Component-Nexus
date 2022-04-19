@@ -8,7 +8,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import "./assets/fonts/GeForce/GeForce-Bold.ttf";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
@@ -34,9 +38,13 @@ const theme = createTheme({
   },
 });
 
+let responsiveFont = createTheme();
+responsiveFont = responsiveFontSizes(theme);
+
 function App() {
   const [cart, setCart] = useState([]);
   const [drawerState, setDrawerState] = useState(false);
+  const [itemLimit, setItemLimit] = useState(null);
 
   const toggleDrawer = (open) => {
     setDrawerState(open);
@@ -60,32 +68,37 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <BrowserRouter>
-        <Nav toggleDrawer={toggleDrawer} cart={cart} />
-        <Cart
-          cart={cart}
-          setCart={setCart}
-          drawerState={drawerState}
-          toggleDrawer={toggleDrawer}
-          handleQuantityChange={handleQuantityChange}
-        />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route
-            path="/products/:id"
-            element={
-              <Item
-                cart={cart}
-                setCart={setCart}
-                handleQuantityChange={handleQuantityChange}
-              />
-            }
+      <ThemeProvider theme={responsiveFont}>
+        <CssBaseline />
+        <BrowserRouter>
+          <Nav toggleDrawer={toggleDrawer} cart={cart} />
+          <Cart
+            cart={cart}
+            setCart={setCart}
+            setItemLimit={setItemLimit}
+            drawerState={drawerState}
+            toggleDrawer={toggleDrawer}
+            handleQuantityChange={handleQuantityChange}
           />
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/products/:id"
+              element={
+                <Item
+                  cart={cart}
+                  setCart={setCart}
+                  handleQuantityChange={handleQuantityChange}
+                  itemLimit={itemLimit}
+                  setItemLimit={setItemLimit}
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
     </ThemeProvider>
   );
 }
