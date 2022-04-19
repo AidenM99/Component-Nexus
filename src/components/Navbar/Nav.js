@@ -19,6 +19,13 @@ const theme = createTheme({
       main: "#fff",
     },
   },
+  typography: {
+    h5: {
+      "@media (max-width:400px)": {
+        fontSize: 16,
+      },
+    },
+  },
   mixins: {
     toolbar: {
       "@media (min-width: 0px)": {
