@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import { useState } from "react";
 import ImageShowcase from "../components/ProductPage/ImageShowcase";
 import ProductDetails from "../components/ProductPage/ProductDetails";
+import CustomisedSnackbar from "../components/ProductPage/CustomisedSnackbar";
 
 const GridContainer = styled(Grid)(() => ({
   alignItems: "center",
@@ -13,16 +14,41 @@ const GridContainer = styled(Grid)(() => ({
   maxWidth: "1400px",
 }));
 
-const Item = ({ cart, setCart, handleQuantityChange }) => {
+const Item = ({
+  cart,
+  setCart,
+  handleQuantityChange,
+  itemLimit,
+  setItemLimit,
+}) => {
   const { id } = useParams();
+  const product = allProducts.filter((product) => product.id === id);
+  const [showcase, setShowcase] = useState(product[0].image);
+  const [open, setOpen] = useState(false);
 
-  const findProduct = (id) => {
-    return allProducts.filter((product) => product.id === id);
+  const handleClick = () => {
+    setOpen(true);
   };
 
-  const product = findProduct(id);
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
 
-  const [showcase, setShowcase] = useState(product[0].image);
+    setOpen(false);
+  };
+
+  const itemLimitReached = (product) => {
+    const index = cart
+      .map(function (item) {
+        return item.id;
+      })
+      .indexOf(product.id);
+
+    if (index === -1) return;
+
+    cart[index].quantity === 5 ? setItemLimit(true) : setItemLimit(false);
+  };
 
   const addToCart = (product) => {
     if (cart.some((item) => item.id === product.id)) {
@@ -43,17 +69,37 @@ const Item = ({ cart, setCart, handleQuantityChange }) => {
   };
 
   return (
-    <Box sx={{ background: "rgb(242 ,242 ,242)" }}>
+    <Box
+      sx={{
+        background: "rgb(242, 242, 242)",
+      }}
+    >
       <GridContainer
         container
-        sx={{ height: { xs: "auto", md: "calc(100vh - 5rem)" } }}
+        sx={{
+          minHeight: {
+            xs: "auto",
+            md: "calc(100vh - 5rem)",
+          },
+          alignContent: "center",
+        }}
       >
         <ImageShowcase
-          product={product}
           showcase={showcase}
           setShowcase={setShowcase}
+          product={product}
         />
-        <ProductDetails product={product} addToCart={addToCart} />
+        <ProductDetails
+          product={product}
+          addToCart={addToCart}
+          handleClick={handleClick}
+          itemLimitReached={itemLimitReached}
+        />
+        <CustomisedSnackbar
+          open={open}
+          handleClose={handleClose}
+          itemLimit={itemLimit}
+        />
       </GridContainer>
     </Box>
   );
