@@ -1,5 +1,6 @@
 import { Box, Button, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import uniqid from "uniqid";
 
 const GalleryContainer = styled(Box)(() => ({
   display: "flex",
@@ -28,7 +29,9 @@ const ShowcaseImageContainer = styled(Box)(() => ({
 const GridItem = styled(Grid)(() => ({
   display: "flex",
   flexDirection: "column",
-  height: "35rem",
+  height: "60vh",
+  minHeight: "28rem",
+  maxHeight: "35rem",
   padding: "1rem",
 }));
 
@@ -37,7 +40,7 @@ const ProductButton = styled(Button)(() => ({
   flex: "1",
 }));
 
-const ImageShowcase = ({ product, showcase, setShowcase }) => {
+const ImageShowcase = ({ showcase, setShowcase, product }) => {
   return (
     <GridItem item xs={12} md={6}>
       <ShowcaseImageContainer>
@@ -50,7 +53,7 @@ const ImageShowcase = ({ product, showcase, setShowcase }) => {
       </ShowcaseImageContainer>
       <GalleryContainer>
         {product[0].gallery.map((image) => (
-          <ProductButton onClick={() => setShowcase(image)}>
+          <ProductButton key={uniqid()} onClick={() => setShowcase(image)}>
             <StyledImage
               component="img"
               src={image}
