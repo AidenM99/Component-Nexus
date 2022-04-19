@@ -14,7 +14,17 @@ const Home = () => {
         backgroundSize: "cover",
       }}
     >
-      <Grid item xs={12} md={6} px="7.5%" sx={{ color: "#fff", pb: "4rem" }}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        px="7.5%"
+        sx={{
+          color: "#fff",
+          pb: "4rem",
+          textAlign: { xs: "center", md: "left" },
+        }}
+      >
         <Typography
           color="primary"
           variant="h3"
