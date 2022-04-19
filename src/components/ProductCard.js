@@ -20,17 +20,16 @@ const StyledProductCard = styled(Card)(() => ({
 }));
 
 const StyledMedia = styled(CardMedia)(() => ({
-  height: "100%",
+  height: "70%",
   margin: "auto",
   maxWidth: "15rem",
   mixBlendMode: "multiply",
   objectFit: "contain",
   transition: "all 0.5s",
-  width: "100%",
+  width: "70%",
 }));
 
 const StyledActionArea = styled(CardActionArea)(() => ({
-  padding: "5rem",
   height: "350px",
 }));
 
