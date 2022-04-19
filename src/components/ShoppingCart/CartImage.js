@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 
-const StyledImageContainer = styled(Box)(() => ({
+const StyledImageContainer = styled(Box)(({ theme }) => ({
   background: "rgb(242, 242, 242)",
   height: "150px",
   marginRight: "1rem",
@@ -11,6 +11,7 @@ const StyledImageContainer = styled(Box)(() => ({
 const StyledImage = styled(Box)(() => ({
   mixBlendMode: "multiply",
   padding: "1.5rem",
+  objectFit: "contain",
 }));
 
 const CartImage = ({ product }) => {
