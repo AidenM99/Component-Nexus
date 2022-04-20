@@ -3,6 +3,17 @@ import allProducts from "../utils/products/products";
 import ProductCard from "../components/ProductCard";
 import { useEffect, useState, useRef } from "react";
 import { Box, Grid, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+const GridContainer = styled(Grid)(({ theme }) => ({
+  padding: "6rem 2rem",
+  maxWidth: "1200px",
+  margin: "auto",
+  flexDirection: "column",
+  [theme.breakpoints.down("sm")]: {
+    padding: "10% 1rem",
+  },
+}));
 
 const Products = () => {
   const notInitialRender = useRef(false);
@@ -49,16 +60,7 @@ const Products = () => {
       >
         Our Products
       </Typography>
-      <Grid
-        container
-        sx={{
-          py: "6rem",
-          px: "2rem",
-          maxWidth: "1200px",
-          margin: "auto",
-          flexDirection: "column",
-        }}
-      >
+      <GridContainer container>
         <Grid item xs={12}>
           <Filters filterProducts={filterProducts} />
         </Grid>
@@ -67,7 +69,7 @@ const Products = () => {
             <ProductCard productDisplay={productDisplay} />
           </Grid>
         </Grid>
-      </Grid>
+      </GridContainer>
     </Box>
   );
 };
