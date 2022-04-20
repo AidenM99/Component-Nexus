@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 
-const StyledImageContainer = styled(Box)(({ theme }) => ({
+const StyledImageContainer = styled(Box)(() => ({
   background: "rgb(242, 242, 242)",
   height: "150px",
   marginRight: "1rem",
