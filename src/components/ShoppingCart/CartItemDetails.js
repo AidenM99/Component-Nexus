@@ -16,8 +16,9 @@ const ProductDetailsTwo = styled(Box)(({ theme }) => ({
   display: "flex",
   flexGrow: "1",
   alignItems: "flex-end",
+  marginTop: "0.75rem",
   [theme.breakpoints.down("sm")]: {
-    flexDirection: "column-reverse",
+    flexDirection: "column",
   },
 }));
 
@@ -41,6 +42,7 @@ const StyledButton = styled(Button)(() => ({
   minHeight: 0,
   minWidth: 0,
   padding: 0,
+  marginTop: "0.75rem",
 }));
 
 const CartItemDetails = ({
@@ -79,11 +81,7 @@ const CartItemDetails = ({
             </MenuItem>
           ))}
         </StyledTextField>
-        <StyledFlexEnd
-          sx={{
-            width: { xs: "100%", sm: "auto" },
-          }}
-        >
+        <StyledFlexEnd>
           <StyledButton
             variant="text"
             color="secondary"
