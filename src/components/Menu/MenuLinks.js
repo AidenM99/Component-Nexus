@@ -33,7 +33,7 @@ const MenuLinks = ({ toggleMenuDrawer }) => {
           onClick={() => toggleMenuDrawer(false)}
           style={{ textDecoration: "none" }}
         >
-          <MenuLink fontSize="10vw" color="secondary">
+          <MenuLink fontSize="7.5vw" color="secondary">
             Home
           </MenuLink>
         </Link>
@@ -44,7 +44,7 @@ const MenuLinks = ({ toggleMenuDrawer }) => {
           onClick={() => toggleMenuDrawer(false)}
           style={{ textDecoration: "none" }}
         >
-          <MenuLink fontSize="10vw" color="secondary">
+          <MenuLink fontSize="7.5vw" color="secondary">
             Products
           </MenuLink>
         </Link>
@@ -55,7 +55,7 @@ const MenuLinks = ({ toggleMenuDrawer }) => {
           onClick={() => toggleMenuDrawer(false)}
           style={{ textDecoration: "none" }}
         >
-          <MenuLink fontSize="10vw" color="secondary">
+          <MenuLink fontSize="7.5vw" color="secondary">
             Contact
           </MenuLink>
         </Link>
