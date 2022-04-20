@@ -45,7 +45,10 @@ const Item = ({
       })
       .indexOf(product.id);
 
-    if (index === -1) return;
+    if (index === -1) {
+      setItemLimit(false);
+      return;
+    }
 
     cart[index].quantity === 5 ? setItemLimit(true) : setItemLimit(false);
   };
