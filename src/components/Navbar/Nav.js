@@ -1,4 +1,3 @@
-import Menu from "../Menu/Menu";
 import NavLinks from "./NavLinks";
 import MenuButton from "./MenuButton";
 import CartButton from "./CartButton";
