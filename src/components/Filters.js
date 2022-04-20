@@ -1,11 +1,12 @@
 import FilterListIcon from "@mui/icons-material/FilterList";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import {
   Box,
   Typography,
   Checkbox,
   FormGroup,
   FormControlLabel,
+  useMediaQuery,
 } from "@mui/material";
 
 const StyledBox = styled(Box)(() => ({
@@ -29,6 +30,8 @@ const StyledForm = styled(FormGroup)(() => ({
 }));
 
 const Filters = ({ filterProducts }) => {
+  const theme = useTheme();
+  const smallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const filterItems = [
     "Processors",
     "Graphics Cards",
@@ -51,16 +54,27 @@ const Filters = ({ filterProducts }) => {
       <NotchedBox>
         <StyledForm row>
           {filterItems.map((filterItem) => (
-            <Box key={filterItem} sx={{ margin: "0 3.5%", width: "135px" }}>
+            <Box
+              key={filterItem}
+              sx={{
+                margin: "0 3.5%",
+                width: { xs: "107px", sm: "135px" },
+              }}
+            >
               <FormControlLabel
                 sx={{ margin: "0" }}
                 control={
                   <Checkbox
-                    sx={{ padding: "0", color: "#fff" }}
+                    size={smallScreen ? "small" : "medium"}
                     onClick={(e) => filterProducts(filterItem, e)}
+                    sx={{ padding: "0", color: "#fff" }}
                   />
                 }
-                label={filterItem}
+                label={
+                  <Typography sx={{ fontSize: { xs: "0.8rem", sm: "1rem" } }}>
+                    {filterItem}
+                  </Typography>
+                }
               />
             </Box>
           ))}
