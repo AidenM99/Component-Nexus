@@ -1,6 +1,7 @@
+import Menu from "../Menu/Menu";
 import NavLinks from "./NavLinks";
-import NavMenu from "./NavMenu";
-import OpenCartButton from "./OpenCartButton";
+import MenuButton from "./MenuButton";
+import CartButton from "./CartButton";
 import MemoryIcon from "@mui/icons-material/Memory";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
@@ -19,13 +20,6 @@ const theme = createTheme({
       main: "#fff",
     },
   },
-  typography: {
-    h5: {
-      "@media (max-width:400px)": {
-        fontSize: 16,
-      },
-    },
-  },
   mixins: {
     toolbar: {
       "@media (min-width: 0px)": {
@@ -38,6 +32,9 @@ const theme = createTheme({
 const StyledAppBar = styled(AppBar)(() => ({
   display: "flex",
   padding: "0 7.5%",
+  [theme.breakpoints.down("sm")]: {
+    padding: "0",
+  },
 }));
 
 const StyledToolbar = styled(Toolbar)(() => ({
@@ -49,7 +46,7 @@ const StyledBox = styled(Box)(() => ({
   display: "flex",
 }));
 
-const Nav = ({ toggleDrawer, cart }) => {
+const Nav = ({ toggleMenuDrawer, toggleCartDrawer, cart }) => {
   return (
     <ThemeProvider theme={theme}>
       <StyledAppBar color="secondary" position="sticky" elevation={0}>
@@ -63,6 +60,7 @@ const Nav = ({ toggleDrawer, cart }) => {
                   variant="h5"
                   component="h1"
                   textTransform="uppercase"
+                  lineHeight="0.9"
                   sx={{ fontFamily: "Geforce" }}
                 >
                   Component Nexus
@@ -72,8 +70,8 @@ const Nav = ({ toggleDrawer, cart }) => {
             <NavLinks />
           </StyledBox>
           <StyledBox>
-            <NavMenu />
-            <OpenCartButton cart={cart} toggleDrawer={toggleDrawer} />
+            <MenuButton toggleMenuDrawer={toggleMenuDrawer} />
+            <CartButton cart={cart} toggleCartDrawer={toggleCartDrawer} />
           </StyledBox>
         </StyledToolbar>
       </StyledAppBar>
