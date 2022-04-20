@@ -1,13 +1,16 @@
 import Item from "./views/Item";
 import Home from "./views/Home";
 import Contact from "./views/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 import Products from "./views/Products";
 import Nav from "./components/Navbar/Nav";
+import Menu from "./components/Menu/Menu";
 import Cart from "./components/ShoppingCart/Cart";
 import CssBaseline from "@mui/material/CssBaseline";
 import "./assets/fonts/GeForce/GeForce-Bold.ttf";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import {
   createTheme,
   ThemeProvider,
@@ -26,13 +29,6 @@ const theme = createTheme({
       main: "#fff",
     },
   },
-  mixins: {
-    toolbar: {
-      "@media (min-width: 0px)": {
-        minHeight: "80px",
-      },
-    },
-  },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "GeForce", "Arial", sans-serif',
   },
@@ -43,11 +39,17 @@ responsiveFont = responsiveFontSizes(theme);
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [drawerState, setDrawerState] = useState(false);
   const [itemLimit, setItemLimit] = useState(null);
+  const [cartDrawer, setCartDrawer] = useState(false);
+  const [menuDrawer, setMenuDrawer] = useState(false);
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-  const toggleDrawer = (open) => {
-    setDrawerState(open);
+  const toggleMenuDrawer = (status) => {
+    setMenuDrawer(status);
+  };
+
+  const toggleCartDrawer = (status) => {
+    setCartDrawer(status);
   };
 
   const handleQuantityChange = (product, ...args) => {
@@ -71,13 +73,21 @@ function App() {
       <ThemeProvider theme={responsiveFont}>
         <CssBaseline />
         <BrowserRouter>
-          <Nav toggleDrawer={toggleDrawer} cart={cart} />
+          <ScrollToTop />
+          <Nav
+            toggleMenuDrawer={toggleMenuDrawer}
+            toggleCartDrawer={toggleCartDrawer}
+            cart={cart}
+          />
+          {matches ? (
+            <Menu menuDrawer={menuDrawer} toggleMenuDrawer={toggleMenuDrawer} />
+          ) : null}
           <Cart
             cart={cart}
             setCart={setCart}
             setItemLimit={setItemLimit}
-            drawerState={drawerState}
-            toggleDrawer={toggleDrawer}
+            cartDrawer={cartDrawer}
+            toggleCartDrawer={toggleCartDrawer}
             handleQuantityChange={handleQuantityChange}
           />
           <Routes>
