@@ -15,7 +15,7 @@ const StyledBox = styled(Box)(() => ({
   justifyContent: "center",
 }));
 
-const EmptyCart = ({ toggleDrawer }) => {
+const EmptyCart = ({ toggleCartDrawer }) => {
   return (
     <Container>
       <Box>
@@ -32,7 +32,7 @@ const EmptyCart = ({ toggleDrawer }) => {
             variant="outlined"
             color="secondary"
             size="large"
-            onClick={() => toggleDrawer(false)}
+            onClick={() => toggleCartDrawer(false)}
           >
             Browse Products
           </Button>

@@ -1,14 +1,14 @@
 import CartItems from "./CartItems";
 import EmptyCart from "./EmptyCart";
-import CloseButton from "./CloseButton";
+import CloseCart from "./CloseCart";
 import { Drawer, Grid, Typography } from "@mui/material";
 
 const Cart = ({
   cart,
   setCart,
   setItemLimit,
-  drawerState,
-  toggleDrawer,
+  cartDrawer,
+  toggleCartDrawer,
   handleQuantityChange,
 }) => {
   const calculateSubtotal = () => {
@@ -27,15 +27,15 @@ const Cart = ({
   return (
     <Drawer
       anchor={"right"}
-      open={drawerState}
-      onClose={() => toggleDrawer(false)}
+      open={cartDrawer}
+      onClose={() => toggleCartDrawer(false)}
       PaperProps={{
         sx: {
           width: { xs: "100%", md: "50%", lg: "50%", xl: "35%" },
         },
       }}
     >
-      <CloseButton toggleDrawer={toggleDrawer} />
+      <CloseCart toggleCartDrawer={toggleCartDrawer} />
       <Grid
         container
         direction="column"
@@ -51,7 +51,7 @@ const Cart = ({
           </Typography>
         </Grid>
         {cart.length === 0 ? (
-          <EmptyCart toggleDrawer={toggleDrawer} />
+          <EmptyCart toggleCartDrawer={toggleCartDrawer} />
         ) : (
           <CartItems
             cart={cart}
