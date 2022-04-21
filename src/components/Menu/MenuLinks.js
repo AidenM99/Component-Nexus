@@ -6,6 +6,7 @@ const MenuLink = styled(Typography)(() => ({
   display: "inline-block",
   position: "relative",
   color: "secondary",
+  margin: "1rem 0",
   "&::after": {
     content: '""',
     position: "absolute",
