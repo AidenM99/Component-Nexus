@@ -9,7 +9,7 @@ import Cart from "./components/ShoppingCart/Cart";
 import CssBaseline from "@mui/material/CssBaseline";
 import "./assets/fonts/GeForce/GeForce-Bold.ttf";
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Footer from "./components/Footer/Footer";
 import {
@@ -73,7 +73,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <ThemeProvider theme={responsiveFont}>
         <CssBaseline />
-        <BrowserRouter basename="/">
+        <HashRouter>
           <ScrollToTop />
           <Nav
             toggleMenuDrawer={toggleMenuDrawer}
@@ -109,7 +109,7 @@ function App() {
             />
           </Routes>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </ThemeProvider>
   );
