@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.de931013.css","mappings":"AAAA,KACE,QACF,CAEA,WACE,mBAAoB,CACpB,0EACF","sources":["index.css"],"sourcesContent":["body {\r\n  margin: 0;\r\n}\r\n\r\n@font-face {\r\n  font-family: Geforce;\r\n  src: url(./assets/fonts/GeForce/GeForce-Bold.ttf);\r\n}\r\n"],"names":[],"sourceRoot":""}
