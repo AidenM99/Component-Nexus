@@ -73,7 +73,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <ThemeProvider theme={responsiveFont}>
         <CssBaseline />
-        <BrowserRouter>
+        <BrowserRouter basename="/">
           <ScrollToTop />
           <Nav
             toggleMenuDrawer={toggleMenuDrawer}
