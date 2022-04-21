@@ -21,7 +21,6 @@ const Home = () => {
         px="7.5%"
         sx={{
           color: "#fff",
-          pb: "4rem",
           textAlign: { xs: "center", md: "left" },
         }}
       >
