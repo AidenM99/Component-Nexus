@@ -11,8 +11,8 @@ const GalleryContainer = styled(Box)(() => ({
 }));
 
 const StyledImage = styled(Box)(() => ({
-  maxHeight: "75%",
-  maxWidth: "75%",
+  height: "75%",
+  width: "75%",
   mixBlendMode: "multiply",
   objectFit: "contain",
 }));
@@ -21,8 +21,7 @@ const ShowcaseImageContainer = styled(Box)(() => ({
   alignItems: "center",
   display: "flex",
   justifyContent: "center",
-  maxHeight: "80%",
-  minHeight: "80%",
+  height: "80%",
   width: "100%",
 }));
 
