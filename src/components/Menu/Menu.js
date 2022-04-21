@@ -18,7 +18,6 @@ const Menu = ({ menuDrawer, toggleMenuDrawer }) => {
       <Grid
         container
         direction="column"
-        rowSpacing={10}
         sx={{
           justifyContent: "center",
           alignItems: "center",
