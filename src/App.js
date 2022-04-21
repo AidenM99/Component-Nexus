@@ -11,6 +11,7 @@ import "./assets/fonts/GeForce/GeForce-Bold.ttf";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Footer from "./components/Footer/Footer";
 import {
   createTheme,
   ThemeProvider,
@@ -107,6 +108,7 @@ function App() {
               }
             />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </ThemeProvider>
     </ThemeProvider>
