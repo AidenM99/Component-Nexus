@@ -37,6 +37,7 @@ const GridItem = styled(Grid)(() => ({
 const ProductButton = styled(Button)(() => ({
   background: "rgb(219, 217, 214)",
   flex: "1",
+  height: "100%",
 }));
 
 const ImageShowcase = ({ showcase, setShowcase, product }) => {
