@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Shopping-Cart/static/css/main.de931013.css",
-    "main.js": "/Shopping-Cart/static/js/main.72bcbdcd.js",
+    "main.js": "/Shopping-Cart/static/js/main.4bb61e51.js",
     "static/media/b550-tomahawk-2.jpg": "/Shopping-Cart/static/media/b550-tomahawk-2.6792ff5e46c3d2673c48.jpg",
     "static/media/b550-tomahawk-3.jpg": "/Shopping-Cart/static/media/b550-tomahawk-3.82f42d91df88a5dcfa80.jpg",
     "static/media/b550-msi-mpg-2.jpg": "/Shopping-Cart/static/media/b550-msi-mpg-2.ae1ba8c262bfed0160d5.jpg",
@@ -70,10 +70,10 @@
     "static/media/kingston-hyperX-fury-2.jpg": "/Shopping-Cart/static/media/kingston-hyperX-fury-2.624a6fc65c8681f9a3e2.jpg",
     "index.html": "/Shopping-Cart/index.html",
     "main.de931013.css.map": "/Shopping-Cart/static/css/main.de931013.css.map",
-    "main.72bcbdcd.js.map": "/Shopping-Cart/static/js/main.72bcbdcd.js.map"
+    "main.4bb61e51.js.map": "/Shopping-Cart/static/js/main.4bb61e51.js.map"
   },
   "entrypoints": [
     "static/css/main.de931013.css",
-    "static/js/main.72bcbdcd.js"
+    "static/js/main.4bb61e51.js"
   ]
 }
