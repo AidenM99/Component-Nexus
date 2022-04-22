@@ -12,6 +12,8 @@ const GridContainer = styled(Grid)(() => ({
   margin: "auto",
   minHeight: "calc(100vh - 12rem)",
   textAlign: "center",
+  justifyContent: "center",
+  alignItems: "center",
 }));
 
 const SupportOption = styled(Grid)(() => ({
@@ -27,7 +29,7 @@ const Contact = () => {
       <GridContainer
         container
         direction="column"
-        sx={{ padding: { xs: "5%", md: "5rem" } }}
+        sx={{ py: "3rem", px: { xs: "1rem", md: "3rem" } }}
       >
         <Grid item sx={{ marginBottom: "2rem" }}>
           <Typography variant="h2" color="primary" fontWeight="400">
