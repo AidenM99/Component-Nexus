@@ -39,7 +39,7 @@ const Cart = ({
       <Grid
         container
         direction="column"
-        sx={{ padding: "7.5rem 10%", flexGrow: 1 }}
+        sx={{ padding: "7.5rem 10%", flexGrow: 1, flexWrap: "nowrap" }}
       >
         <Grid item sx={{ mb: "2rem" }}>
           <Typography variant="h4" fontWeight={600} lineHeight="32px">
