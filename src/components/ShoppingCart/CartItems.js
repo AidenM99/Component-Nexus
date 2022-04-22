@@ -2,6 +2,7 @@ import CartImage from "./CartImage";
 import CartItemDetails from "./CartItemDetails";
 import { styled } from "@mui/material/styles";
 import { Box, Button, Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const StyledFlexContainer = styled(Box)(() => ({
   display: "flex",
@@ -13,6 +14,7 @@ const CartItems = ({
   setItemLimit,
   removeCartItem,
   calculateSubtotal,
+  toggleCartDrawer,
   handleQuantityChange,
 }) => {
   return (
@@ -38,14 +40,21 @@ const CartItems = ({
           })}
         </Typography>
       </StyledFlexContainer>
-      <Button
-        variant="contained"
-        color="secondary"
-        size="large"
-        sx={{ mt: "1rem" }}
-      >
-        Checkout
-      </Button>
+      <Link to={"/"} style={{ textDecoration: "none" }}>
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          fullWidth
+          sx={{ mt: "1rem" }}
+          onClick={() => {
+            setCart([]);
+            toggleCartDrawer(false);
+          }}
+        >
+          Checkout
+        </Button>
+      </Link>
     </>
   );
 };

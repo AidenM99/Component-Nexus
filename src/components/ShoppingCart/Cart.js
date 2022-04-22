@@ -59,6 +59,7 @@ const Cart = ({
             setItemLimit={setItemLimit}
             removeCartItem={removeCartItem}
             calculateSubtotal={calculateSubtotal}
+            toggleCartDrawer={toggleCartDrawer}
             handleQuantityChange={handleQuantityChange}
           />
         )}
