@@ -51,7 +51,7 @@ const Nav = ({ toggleMenuDrawer, toggleCartDrawer, cart }) => {
       <StyledAppBar color="secondary" position="sticky" elevation={0}>
         <StyledToolbar>
           <StyledBox>
-            <StyledBox sx={{ mr: "4rem" }}>
+            <StyledBox sx={{ mr: { xs: "2rem", md: "4rem" } }}>
               <MemoryIcon sx={{ mr: 1 }} />
               <Link to="/" style={{ textDecoration: "none" }}>
                 <Typography
