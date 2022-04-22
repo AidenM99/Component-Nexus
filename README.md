@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+## Component Nexus
+A shopping cart application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Live Demo: https://aidenm99.github.io/Component-Nexus/
 
-## Available Scripts
+## Technologies Used
+This project was built using:
+- HTML5
+- CSS3
+- JavaScript
+- React
+- React Router
+- Material UI
+- Webpack
 
-In the project directory, you can run:
+## Features
+- Switch between 'Home', 'Products' and 'Contact' pages with the help of React Router
+- Each product comes with a series of related images the user can flick through
+- Browse an array of products, click on one to view more details
+- Add or remove items as needed from the shopping cart
+- Change the quantity of an item in the shopping cart
+- Utilises Material UI for a seamless experience
+- Works on mobile devices
 
-### `npm start`
+## Challenges
+This application uses React Router to allow for routing between pages. This library was completely new to me at the time of building the application and as such, the initial
+configuration was slightly confusing. More specifically, creating a route where I did not yet know the details of said route i.e. when a product is clicked on the product
+page, was the most challenging aspect of using React Router in this application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Additionally, this application was built and styled entirely using Material UI, a framework which was also completely new to me. Becoming familiar with MUI was by far 
+the hardest part of building this application. In particular, utilising theming in MUI was a noteworthy challenge. However, I'm glad that I took the time to make use
+of MUI in a project as I am now aware of how powerful this framework is for creating appealing user inferfaces, and I now have a much better understanding of it for the
+future.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots
+Home Page
 
-### `npm test`
+![](./images/Home.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Products Page
 
-### `npm run build`
+![](./images/Products.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Contact Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](./images/Contact.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Item Page
 
-### `npm run eject`
+![](./images/Item.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Shopping Cart
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![](./images/Cart.png)
