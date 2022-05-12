@@ -8,6 +8,7 @@ const CartMenu = ({ toggleCartDrawer, cart }) => {
         color="light"
         sx={{ justifySelf: "flex-end" }}
         onClick={() => toggleCartDrawer(true)}
+        aria-label="cart-button"
       >
         <Badge badgeContent={cart.length} color="primary">
           <ShoppingCartIcon />
