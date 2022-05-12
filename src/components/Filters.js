@@ -41,7 +41,8 @@ const Filters = ({ filterProducts }) => {
       <StyledBox>
         <Typography
           textTransform="uppercase"
-          variant="h5"
+          variant="h4"
+          component="h3"
           sx={{ mr: "0.75rem", fontFamily: "GeForce" }}
         >
           Filter by

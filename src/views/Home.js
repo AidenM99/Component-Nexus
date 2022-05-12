@@ -27,6 +27,7 @@ const Home = () => {
         <Typography
           color="primary"
           variant="h3"
+          component="h2"
           textTransform="uppercase"
           sx={{ fontFamily: "Geforce" }}
         >
@@ -35,6 +36,7 @@ const Home = () => {
         <Typography
           color="light"
           variant="h5"
+          component="h3"
           textTransform="uppercase"
           sx={{ mb: "0.3rem" }}
         >

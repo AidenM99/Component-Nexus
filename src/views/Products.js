@@ -49,6 +49,7 @@ const Products = () => {
       <Typography
         color="secondary"
         variant="h3"
+        component="h2"
         textTransform="uppercase"
         textAlign="center"
         sx={{

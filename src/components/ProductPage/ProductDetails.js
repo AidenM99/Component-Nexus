@@ -37,7 +37,7 @@ const ProductDetails = ({
     <GridItem item xs={12} md={6}>
       <Wrapper>
         <Box>
-          <Typography variant="h3" fontFamily="GeForce">
+          <Typography variant="h3" component="h2" fontFamily="GeForce">
             {product[0].name}
           </Typography>
         </Box>
