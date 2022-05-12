@@ -54,12 +54,14 @@ const ImageShowcase = ({ showcase, setShowcase, product }) => {
         {product[0].gallery.map((image, id) => (
           <ProductButton
             key={id}
+            aria-label="product-button"
             onClick={() => setShowcase(image)}
             sx={{ mr: id !== 3 ? "0.5rem" : "0" }}
           >
             <StyledImage
               component="img"
               src={image}
+              alt="product-image"
               draggable={false}
             ></StyledImage>
           </ProductButton>
