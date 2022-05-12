@@ -10,7 +10,7 @@ const Wrapper = styled(Box)(() => ({
 const GridContainer = styled(Grid)(() => ({
   maxWidth: "1200px",
   margin: "auto",
-  minHeight: "calc(100vh - 12rem)",
+  minHeight: "calc(100vh - 11.5rem)",
   textAlign: "center",
   justifyContent: "center",
   alignItems: "center",
