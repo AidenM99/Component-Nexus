@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Component-Nexus/static/css/main.55dc5878.css",
-    "main.js": "/Component-Nexus/static/js/main.1e5ecda5.js",
+    "main.js": "/Component-Nexus/static/js/main.f7415ec5.js",
     "static/media/b550-tomahawk-2.jpg": "/Component-Nexus/static/media/b550-tomahawk-2.6792ff5e46c3d2673c48.jpg",
     "static/media/b550-tomahawk-3.jpg": "/Component-Nexus/static/media/b550-tomahawk-3.82f42d91df88a5dcfa80.jpg",
     "static/media/b550-msi-mpg-2.jpg": "/Component-Nexus/static/media/b550-msi-mpg-2.ae1ba8c262bfed0160d5.jpg",
@@ -70,10 +70,10 @@
     "static/media/kingston-hyperX-fury-2.jpg": "/Component-Nexus/static/media/kingston-hyperX-fury-2.624a6fc65c8681f9a3e2.jpg",
     "index.html": "/Component-Nexus/index.html",
     "main.55dc5878.css.map": "/Component-Nexus/static/css/main.55dc5878.css.map",
-    "main.1e5ecda5.js.map": "/Component-Nexus/static/js/main.1e5ecda5.js.map"
+    "main.f7415ec5.js.map": "/Component-Nexus/static/js/main.f7415ec5.js.map"
   },
   "entrypoints": [
     "static/css/main.55dc5878.css",
-    "static/js/main.1e5ecda5.js"
+    "static/js/main.f7415ec5.js"
   ]
 }
