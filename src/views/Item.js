@@ -21,8 +21,8 @@ const Item = ({
   itemLimit,
   setItemLimit,
 }) => {
-  const { id } = useParams();
-  const product = allProducts.filter((product) => product.id === id);
+  const { name } = useParams();
+  const product = allProducts.filter((product) => product.name === name);
   const [showcase, setShowcase] = useState(product[0].image);
   const [open, setOpen] = useState(false);
 

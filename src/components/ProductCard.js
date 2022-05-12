@@ -39,7 +39,7 @@ const ProductCard = ({ productDisplay }) => {
       {productDisplay.map((product) => (
         <Grid key={product.id} item xs={12} sm={6} md={6} lg={4}>
           <Link
-            to={`/products/${product.id}`}
+            to={`/products/${product.name}`}
             style={{ color: "inherit", textDecoration: "none" }}
           >
             <ThemeProvider theme={theme}>

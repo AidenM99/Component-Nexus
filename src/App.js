@@ -96,7 +96,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/contact" element={<Contact />} />
             <Route
-              path="/products/:id"
+              path="/products/:name"
               element={
                 <Item
                   cart={cart}
