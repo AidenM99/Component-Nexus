@@ -1,6 +1,5 @@
 import { Box, Button, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import uniqid from "uniqid";
 
 const GalleryContainer = styled(Box)(() => ({
   display: "flex",
