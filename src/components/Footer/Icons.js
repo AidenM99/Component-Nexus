@@ -16,30 +16,31 @@ const Icons = () => {
   return (
     <GridItem item xs={12} md={6}>
       <Box>
-        <Typography
-          variant="h6"
-          sx={{ marginBottom: { xs: "0", lg: "0.5rem" } }}
-        >
+        <Typography sx={{ marginBottom: { xs: "0", lg: "0.5rem" } }}>
           Follow Us
         </Typography>
       </Box>
       <Box>
         <IconButton
+          aria-label="github-icon"
           onClick={() => window.open("https://github.com/AidenM99", "_blank")}
         >
           <GitHubIcon color="primary" />
         </IconButton>
         <IconButton
+          aria-label="facebook-icon"
           onClick={() => window.open("https://en-gb.facebook.com/", "_blank")}
         >
           <FacebookIcon color="primary" />
         </IconButton>
         <IconButton
+          aria-label="twitter-icon"
           onClick={() => window.open("https://twitter.com/?lang=en", "_blank")}
         >
           <TwitterIcon color="primary" />
         </IconButton>
         <IconButton
+          aria-label="instagram-icon"
           onClick={() =>
             window.open("https://www.instagram.com/?hl=en", "_blank")
           }

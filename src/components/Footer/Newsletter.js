@@ -49,7 +49,7 @@ const Newsletter = ({ input, setInput, isError, emailValidationHandler }) => {
       }}
     >
       <Box>
-        <Typography variant="h6" sx={{ marginBottom: "0.5rem" }}>
+        <Typography sx={{ marginBottom: "0.5rem" }}>
           Subscribe to Our Newsletter
         </Typography>
       </Box>
