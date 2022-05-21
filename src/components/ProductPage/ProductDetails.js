@@ -42,10 +42,10 @@ const ProductDetails = ({
           </Typography>
         </Box>
         <Box>
-          <Typography fontFamily="GeForce" textTransform="uppercase">
+          <Typography fontFamily="GeForce" fontSize="1.1rem" textTransform="uppercase">
             Description
           </Typography>
-          <Typography fontSize="0.9rem">{product[0].description}</Typography>
+          <Typography>{product[0].description}</Typography>
         </Box>
         <Box>
           <MiscInfo>
