@@ -2,6 +2,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Box, Badge, IconButton } from "@mui/material";
 
 const CartMenu = ({ toggleCartDrawer, cart }) => {
+  const quantityTotal = cart.reduce(
+    (previousValue, currentValue) =>
+      previousValue + parseInt(currentValue.quantity),
+    0
+  );
+
   return (
     <Box>
       <IconButton
@@ -10,7 +16,7 @@ const CartMenu = ({ toggleCartDrawer, cart }) => {
         onClick={() => toggleCartDrawer(true)}
         aria-label="cart-button"
       >
-        <Badge badgeContent={cart.length} color="primary">
+        <Badge badgeContent={quantityTotal} color="primary">
           <ShoppingCartIcon />
         </Badge>
       </IconButton>
